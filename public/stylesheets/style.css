@@ -1,0 +1,157 @@
+
+#charitocracy_box{
+  height: 420px;
+  overflow-y:scroll;
+}
+
+#dropItemContainer{
+  height:0px;
+  margin-left:570px;
+  top: -92px;
+  position: relative;
+}
+
+#dropItem{
+  font-size:90px;
+  color: rgb(255, 89, 118);
+  z-index:100;
+  -webkit-animation: heart 1s;
+    
+  animation-duration: 3s;
+  animation-name: heart;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: heart;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+}
+
+#dropItem:hover{
+  background-color: rgba(64,224,64,.9); 
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes heart {
+    from {color: rgb(255, 99, 128);}
+    to {color: rgb(255, 60, 90);}
+}
+
+/* Standard syntax */
+@keyframes heart {
+    from {color: rgb(255, 99, 128);}
+    to {color: rgb(255, 60, 90);}
+}
+
+
+#charitocracy_list, #charity_list{
+  background:   white;
+}
+
+
+#charitocracy_list img, #charity_list img{
+    width:100%;
+    max-height:100px;
+}
+
+#charitocracy_list > div > *{
+  margin:5px;
+  padding: 15px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+
+ #charity_list > div > *{
+  margin:5px;
+  padding: 5px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+
+#charitocracy_list > div, #charity_list > div{
+  padding:0px;
+  margin:0px;
+}
+
+#charitocracy_list span, #charity_list span{
+  color: #444;
+}
+
+.charitocracyThanks{
+  z-index:9999;
+  position: relative;
+}
+
+.undo{
+  margin-right:20px;
+}
+.undo:hover{
+  color: #7F9B80;
+}
+
+/*  ~~~~~~~~~~~~~~~~~~~~~~``  */
+
+
+    #outer-dropzone {
+      height: 140px;
+    }
+
+    #inner-dropzone {
+        height: 80px;
+    }
+
+    .dropzone {
+        transition: background-color 0.6s;
+        background-color: rgba(0,0,0,.01);   /* transparent blue */
+    }
+
+    .drop-active {
+        border-color: #666;
+    }
+
+    .drop-target {
+        background-color: rgba(2,144,224,.6);
+    }
+
+    .drag-drop {
+        display: inline-block;
+        width: 125px;
+        height: 125px;
+        border-radius:100%;
+        padding: 22px 12px;
+
+        background-color: rgba(0,0,0,.05);
+
+        -webkit-transform: translate(0px, 0px);
+                transform: translate(0px, 0px);
+
+        transition: background-color 0.3s;
+    }
+
+    .drag-drop.can-drop { }  /* GREEN */
+
+    .dropped{
+        -webkit-transition: all 1s ease-in-out;
+        -moz-transition: all 1s ease-in-out;
+        -ms-transition: all 1s ease-in-out;
+        -o-transition: all 1s ease-in-out;
+        transition: all 1s ease-in-out;
+        font-size: 20px !important;
+        margin-top: 62px;
+        margin-left:62px;
+        width:20px !important;
+        height:20px !important;
+        padding: 0px !important;
+        opacity:0;
+    }
+
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}

@@ -1,0 +1,94 @@
+extends layout
+
+block content
+  link(rel="stylesheet",href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css")
+  link(rel="stylesheet",href="/stylesheets/csshake.css")
+  script(src="//code.jquery.com/jquery-2.1.1.min.js")
+  script(src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js")
+  script(src="/javascripts/ICanHaz.min.js") 
+  script(src="//code.interactjs.io/interact-1.1.2.min.js") 
+  script(src="/javascripts/feel.js")
+  
+  script.
+    function undoVote(){
+      $('#dropItemContainer').html( "<span id='dropItem' class='draggable drag-drop glyphicon glyphicon-heart' ></span>");
+    } 
+    $(document).ready(function(){
+      
+      $('button#modal').click(function(){
+        $('.charitocracyThanks').remove();
+        undoVote();
+      });
+      
+      $.each(gf, function (index, value) {
+          value.index=index;
+          $('#charitocracy_list').append( ich.charitocracy_list(value) );
+      });  
+          
+      $.each( charity_data, function( index, value ) {
+        value.index=index;
+        $('#charity_list').append( ich.charity_list(value) );
+      });
+    });
+
+  button#modal.btn.btn-primary(type='button', data-toggle='modal', data-target='.bs-example-modal-lg') Simulate Completion of Order
+  
+  .modal.fade.bs-example-modal-lg(tabindex='-1', role='dialog', aria-labelledby='myLargeModalLabel', aria-hidden='true')
+    .modal-dialog.modal-lg
+      .modal-content
+        .modal-body
+          button.close(type='button', data-dismiss='modal')
+            span(aria-hidden='true') ×
+            span.sr-only Close
+          h2#myModalLabel.modal-title What cause should we fund?
+          h3#myModalLabel.modal-title Help us choose by Voting!
+          h4#myModalLabel.modal-title Simply Drag the heart onto your favourite cause!
+        
+          .row#dropItemContainer
+            span#dropItem.draggable.drag-drop.glyphicon.glyphicon-heart
+                    
+          .row
+            .col-sm-4
+              h3
+                b(style='margin-left: 30px;') Global:
+            .col-sm-8
+              h3 
+                b(style='margin-left: 10px;') Charitocracy Picks:
+          .row(style='background:rgba(0,0,0,.05);')#charitocracy_box
+            .col-sm-4#charity_list
+            .col-sm-8#charitocracy_list
+          .row  
+  
+  script#charity_list(type="text/html").
+    <div class="col-sm-12">
+      <div class="dropzone" id='charity_item{{ index }}'>
+        <span class="name" style='display:none'>{{ name }}</span>
+        <img src="{{ img }}"></a>
+      </div>
+    </div>
+    
+  script#charitocracy_list(type="text/html").
+    <div class="col-sm-4">
+      <div class="dropzone" id='charitocracy_item{{ index }}'>
+        <span class="name"><b>{{ description.text }}</b></span>
+        <img src="{{ pic.src }}"></a>
+        <span>{{ amount.text }} pleged.</span>
+      </div>
+    </div>
+  script#thanks(type="text/html").
+    <div class="charitocracy">
+        
+    </div>
+  
+    <div class="charitocracyThanks alert alert-success fade in">
+      <button type="button" data-dismiss="alert" class="close">×</button>
+      <div> Thanks for helping to make the world a better place by choosing <strong>{{name}}</strong>
+        <div class="pull-right undo">UNDO</div>
+      </div>
+      
+    </div>
+
+
+
+
+
